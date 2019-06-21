@@ -1,11 +1,15 @@
 import React from 'react';
 
-const App: React.FC = () => {
+import Header from './Header/Header';
+import Nav from './Nav/Nav';
+import Main from './Main/Main';
+
+const App = () => {
     return (
         <div>
-            <header>
-                <div />
-            </header>
+            <Header />
+            <Nav />
+            <Main />
         </div>
     );
 };
