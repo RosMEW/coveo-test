@@ -1,8 +1,23 @@
+@import '../style/mixins.scss';
+
 header {
-    background-color: bisque;
+    @include flexRow(center);
     width: 100%;
     height: 8vh;
     position: fixed;
     top: 0;
     left: 0;
+
+    .header__container {
+        @include flexRow(space-between);
+        width: 90%;
+        height: 100%;
+        padding: 0 2rem;
+
+        img {
+            display: block;
+            height: 80%;
+            margin: 0 2rem;
+        }
+    }
 }
