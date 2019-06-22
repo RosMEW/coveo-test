@@ -1,3 +1,5 @@
+@import './typography.scss';
+
 @mixin flexRow($justifyContent: flex-start) {
     display: flex;
     flex-direction: row;
@@ -10,4 +12,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+// Search Bar
+@mixin initialForm($width: 4rem, $borderRadius: 50%, $padding: 0) {
+    @include fontLato(2rem, 400);
+    width: $width;
+    height: 4rem;
+    padding: $padding;
+    border-radius: $borderRadius;
+    color: $color-font-grey-red;
+    outline: 0;
+    background: none;
+}
+
+@mixin searchPseudo($rotateDegree: 45deg, $margTop: 0, $margLeft: -1.2rem, $width: 2rem) {
+    content: "";
+    position: absolute;
+    transform: rotate($rotateDegree);
+    width: $width;
+    height: 3px;
+    margin-top: $margTop;
+    margin-left: $margLeft;
+    background-color: $color-border-input;
+    cursor: pointer;
 }

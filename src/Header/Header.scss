@@ -8,16 +8,21 @@ header {
     top: 0;
     left: 0;
 
-    .header__container {
+    .header {
         @include flexRow(space-between);
-        width: 90%;
+        width: 80%;
         height: 100%;
         padding: 0 2rem;
 
         img {
             display: block;
             height: 80%;
-            margin: 0 2rem;
+            margin: 0 1rem;
+        }
+
+        &--right {
+            @include flexRow(center);
+            height: 100%;
         }
     }
 }
