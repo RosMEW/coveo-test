@@ -1,0 +1,50 @@
+@import '../../style/typography.scss';
+@import '../../style/colors.scss';
+@import '../../style/mixins.scss';
+
+.btnOutline {
+    @include flexRow(center);
+    @include fontLato(2rem);
+    color: $color-primary;
+    border: 2px solid $color-border-input;
+    background: transparent;
+    padding: .6rem 2.6rem;
+    margin: 1rem;
+    text-transform: capitalize;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: all .4s ease;
+}
+
+.btnOutline::after {
+    content: '';
+    width: 150%;
+    height: 0%;
+    background: $color-border-input;
+    transform: translateX(-50%) translateY(-50%) rotate(25deg);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    transition: all .75s ease;
+}
+
+.btnOutline:hover,
+.btnOutline:hover {
+    color: white;
+    text-shadow: 2px 2px 4px black;
+}
+
+.btnOutline:hover::after,
+.btnOutline:hover::after {
+    height: 350%;
+}
+
+.btnOutline:link,
+.btnOutline:active {
+    background: white;
+    color: $color-primary;
+    text-shadow: none;
+}
