@@ -1,17 +1,18 @@
 @import './typography.scss';
+@import './colors.scss';
 
-@mixin flexRow($justifyContent: flex-start) {
+@mixin flexRow($justifyContent: flex-start, $align-items: center) {
     display: flex;
     flex-direction: row;
     justify-content: $justifyContent;
-    align-items: center;
+    align-items: $align-items;
 }
 
-@mixin flexColumn() {
+@mixin flexColumn($justifyContent: center) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: $justifyContent;
 }
 
 // Search Bar
@@ -35,5 +36,11 @@
     margin-top: $margTop;
     margin-left: $margLeft;
     background-color: $color-border-input;
+    cursor: pointer;
+}
+
+@mixin icon($size: 1.6rem) {
+    width: $size;
+    height: $size;
     cursor: pointer;
 }
