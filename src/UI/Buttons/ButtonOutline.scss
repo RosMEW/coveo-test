@@ -16,6 +16,11 @@
     cursor: pointer;
     position: relative;
     transition: all .4s ease;
+
+    @media only screen and (max-width: 1000px) {
+        padding: .5rem 1.5rem;
+    }
+
 }
 
 .btnOutline::after {

@@ -1,12 +1,12 @@
 import React from 'react';
 import './ButtonOutline.scss';
 
-type btn = {
+type btnProps = {
     btnText: string;
     onClick: () => void;
 };
 
-const ButtonOutline = (props: btn) => (
+const ButtonOutline = (props: btnProps) => (
     <div>
         <button className='btnOutline' onClick={props.onClick}>
             {props.btnText}

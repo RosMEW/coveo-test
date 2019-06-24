@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './SearchBar.scss';
 
-type searchBar = {
+type searchBarProps = {
     onSubmit: () => void;
     onChange: () => void;
 };
 
-const SearchBar = (props: searchBar) => {
+const SearchBar = (props: searchBarProps) => {
     const [showInput, setShowInput] = useState(false);
 
     return (
