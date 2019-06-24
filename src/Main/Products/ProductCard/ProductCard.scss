@@ -1,0 +1,87 @@
+@import '../../../style/colors.scss';
+@import '../../../style/mixins.scss';
+@import '../../../style/typography.scss';
+
+.product-card {
+    @include flexColumn();
+    padding: 2rem 1rem;
+    min-width: 30rem;
+    transition: all .4s;
+
+    &__img {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    &__title {
+        @include fontLustria();
+        color: $color-primary;
+        text-transform: capitalize;
+        width: 100%;
+        text-align: center;
+    }
+
+    &__location {
+        text-transform: capitalize;
+        font-size: 1.8rem;
+        font-weight: 400;
+        width: 100%;
+        text-align: center;
+
+        span {
+            font-style: italic;
+        }
+    }
+
+    &__bottom {
+        @include flexRow(space-between);
+        width: 90%;
+        margin-top: .5rem;
+
+        .labels {
+            @include flexRow();
+            flex-wrap: wrap;
+
+            .label {
+                display: inline-block;
+                font-size: 1.5rem;
+                margin-right: 3px;
+                margin-top: 3px;
+                background: $color-primary;
+                color: white;
+                text-transform: capitalize;
+                padding: 0 3px;
+                text-shadow: 2px 2px 2px black;
+                border: 2px solid $color-primary;
+                border-radius: .3rem;
+                transition: all .3s;
+            }
+
+            .label:hover {
+                background: white;
+                color: $color-primary;
+                text-shadow: none;
+                font-style: italic;
+                box-shadow: 2px 2px 2px black;
+            }
+        }
+
+        .price {
+            @include flexRow(space-between);
+            @include fontLustria(3rem);
+            color: $color-wine-1;
+            width: 8rem;
+            height: 5rem;
+
+            span {
+                font-size: 1.6rem;
+                transform: translateY(20%);
+            }
+        }
+    }
+}
+
+.product-card:hover {
+    box-shadow: 2px 3px 4px rgba($color-secondary, .5);
+}
