@@ -1,32 +1,30 @@
 import React, { useState } from 'react';
 import './SearchBar.scss';
 
-type searchBarProps = {
-    onSubmit: () => void;
-    onChange: () => void;
-};
-
-const SearchBar = (props: searchBarProps) => {
+const SearchBar = (props: { onSubmit: (searchTerm: string) => void }) => {
     const [showInput, setShowInput] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
 
     return (
-        <form onSubmit={props.onSubmit} className='search-bar'>
+        <form
+            onSubmit={event => {
+                event.preventDefault();
+                props.onSubmit(searchTerm);
+            }}
+            className='search-bar'>
             <input
                 type='text'
                 name='search'
-                className={
-                    showInput ? 'search-bar__input square' : 'search-bar__input'
-                }
-                onChange={props.onChange}
+                className={`search-bar__input ${showInput ? 'square' : ''}`}
+                onChange={event => setSearchTerm(event.target.value)}
             />
             <button
                 type='reset'
-                className={
-                    showInput ? 'search-bar__btn close' : 'search-bar__btn'
+                className={`search-bar__btn ${showInput ? 'close' : ''}`}
+                onMouseEnter={() => (showInput ? null : setShowInput(true))}
+                onClick={() =>
+                    showInput ? setShowInput(false) : setShowInput(true)
                 }
-                onClick={() => {
-                    showInput ? setShowInput(false) : setShowInput(true);
-                }}
             />
         </form>
     );

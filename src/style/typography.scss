@@ -1,4 +1,3 @@
-// fonts
 @mixin fontLustria($fontSize: 2.2rem) {
     font-family: 'Lustria', serif;
     font-size: $fontSize;
@@ -10,5 +9,3 @@
     font-size: $fontSize;
     font-weight: $fontWeight;
 }
-
-$fontSize-lg: 3.2rem;
