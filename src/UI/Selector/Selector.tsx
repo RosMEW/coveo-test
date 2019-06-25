@@ -50,7 +50,7 @@ const Selector = (props: { type: 'sort' | 'page' }) => {
             <option value='default'>12</option>
             <option value='24'>24</option>
             <option value='50'>48</option>
-            <option value='50'>96</option>
+            <option value='96'>96</option>
         </React.Fragment>
     );
 
