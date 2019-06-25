@@ -6,8 +6,9 @@
     display: grid;
     grid-template-rows: max-content 1fr;
     padding: 2rem 1rem;
-    min-width: 30rem;
+    max-width: 30rem;
     transition: all .4s;
+    justify-self: center;
 
     &__img {
         grid-row: 1 / 2;
@@ -16,7 +17,7 @@
         text-align: center;
 
         img {
-            height: 28rem;
+            height: 26rem;
         }
     }
 

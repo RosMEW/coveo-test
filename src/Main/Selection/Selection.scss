@@ -1,21 +1,16 @@
 @import '../../style/mixins.scss';
 @import '../../style/colors.scss';
 
-.selection--container {
-    grid-row: 2 / 3;
-    grid-column: 1 / 2;
-}
-
 .selection {
     @include flexColumn(flex-start);
+    min-width: 17rem;
     padding: 0 1rem;
     text-transform: capitalize;
     font-size: 2rem;
     font-weight: 400;
     color: $color-primary;
-    width: 12vw;
     position: fixed;
-    top: 19vh;
+    top: 25vh;
     left: 0;
 
     &__list {

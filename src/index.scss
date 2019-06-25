@@ -23,4 +23,5 @@ body {
     @include fontLato();
     line-height: 1.5;
     color: $color-font-grey-red;
+    min-height: 100vh;
 }

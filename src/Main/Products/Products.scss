@@ -1,15 +1,14 @@
 @import '../../style/mixins.scss';
 
 .products {
-    grid-row: 1 / 3;
-    grid-column: 2 / 3;
+    padding-left: 10vw;
 
     &--container {
         @include flexColumn(flex-start);
         width: 100%;
         height: 100%;
         margin: 0 auto;
-        padding: 3rem;
+        padding: 1rem 2rem 1rem 1rem;
     }
 
     &__header {
@@ -30,8 +29,9 @@
 
     &__list {
         width: 100%;
+        padding: 0 1rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
         grid-row-gap: 1rem;
         grid-column-gap: 2rem;
     }
