@@ -1,11 +1,13 @@
 import React from 'react';
 
+import Selection from './Selection/Selection';
+import Products from './Products/Products';
 import './Main.scss';
 
 const Main = () => (
     <main>
-        <div className='products'>products</div>
-        <div className='selection'>selection</div>
+        <Selection />
+        <Products />
     </main>
 );
 
