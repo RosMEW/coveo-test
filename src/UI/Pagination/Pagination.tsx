@@ -1,15 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import ReactPaginate from 'react-paginate';
+
+import { state } from '../../shared/types';
+import * as actionTypes from '../../store/actions/actionTypes';
 import './Pagination.scss';
 
 const Pagination = () => {
-    const resultPerPage = 10;
-    const [offset, setOffset] = useState(0);
+    const resultPerPage = useSelector(
+        (state: state) => state.search.query.resultPerPage
+    );
+    const totalResults = useSelector((state: state) => state.search.total);
+    const dispatch = useDispatch();
+
+    let pageCount = Math.ceil(totalResults / resultPerPage);
+    useEffect(() => {
+        pageCount = Math.ceil(totalResults / resultPerPage);
+    }, [resultPerPage]);
 
     const pageClickHandler = ({ selected }: { selected: number }) => {
-        // offset - number of products previously displayed
-        let offset = Math.ceil(selected * resultPerPage);
-        setOffset(offset);
+        dispatch({
+            type: actionTypes.UPDATE_FIRST_RESULT_DISPLAY,
+            firstResult: Math.ceil(selected * resultPerPage)
+        });
+        window.scrollTo(0, 0);
     };
 
     return (
@@ -17,7 +31,7 @@ const Pagination = () => {
             previousLabel={'<'}
             nextLabel={'>'}
             breakLabel={'...'}
-            pageCount={20}
+            pageCount={pageCount}
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}
             onPageChange={pageClickHandler}
