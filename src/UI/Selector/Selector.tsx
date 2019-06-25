@@ -47,7 +47,7 @@ const Selector = (props: { type: 'sort' | 'page' }) => {
 
     const pageOptions = (
         <React.Fragment>
-            <option value='default'>12</option>
+            <option value='12'>12</option>
             <option value='24'>24</option>
             <option value='50'>48</option>
             <option value='96'>96</option>
@@ -73,7 +73,7 @@ const Selector = (props: { type: 'sort' | 'page' }) => {
         <div className='selector'>
             <select
                 onChange={selectHandler}
-                defaultValue='default'
+                defaultValue={props.type === 'page' ? '12' : 'default'}
                 className={props.type === 'page' ? 'page' : ''}>
                 {props.type === 'sort' ? sortOptions : pageOptions}
             </select>

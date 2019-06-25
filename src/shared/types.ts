@@ -68,7 +68,7 @@ export type searchState = {
         sortOrder: string;
         sortField: string;
         resultPerPage: number;
-        firstResult: number;
+        currentPage: number;
     };
     results: product[];
     total: number;

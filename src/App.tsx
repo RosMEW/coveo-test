@@ -24,7 +24,7 @@ const App: React.FC = () => {
             sortCriteria: query.sortOrder,
             sortField: query.sortField,
             numberOfResults: query.resultPerPage,
-            firstResult: query.firstResult
+            firstResult: query.currentPage * query.resultPerPage
         };
         dispatch(newSearch(querySearchParams));
     }, [query]);

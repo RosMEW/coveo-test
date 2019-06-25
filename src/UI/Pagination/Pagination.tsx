@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 
@@ -11,17 +11,21 @@ const Pagination = () => {
         (state: state) => state.search.query.resultPerPage
     );
     const totalResults = useSelector((state: state) => state.search.total);
+    const currentPage = useSelector(
+        (state: state) => state.search.query.currentPage
+    );
     const dispatch = useDispatch();
 
-    let pageCount = Math.ceil(totalResults / resultPerPage);
-    useEffect(() => {
-        pageCount = Math.ceil(totalResults / resultPerPage);
-    }, [resultPerPage]);
+    let pageCount = useMemo(() => {
+        // There is currently a bug on the actual total number of results
+        const total = Math.min(totalResults, 1000);
+        return Math.floor(total / resultPerPage);
+    }, [totalResults, resultPerPage]);
 
     const pageClickHandler = ({ selected }: { selected: number }) => {
         dispatch({
-            type: actionTypes.UPDATE_FIRST_RESULT_DISPLAY,
-            firstResult: Math.ceil(selected * resultPerPage)
+            type: actionTypes.UPDATE_CURRENT_PAGE,
+            currentPage: selected
         });
         window.scrollTo(0, 0);
     };
@@ -37,6 +41,7 @@ const Pagination = () => {
             onPageChange={pageClickHandler}
             containerClassName={'pagination'}
             activeClassName={'active'}
+            forcePage={currentPage}
         />
     );
 };

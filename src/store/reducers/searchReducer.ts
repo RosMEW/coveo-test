@@ -9,7 +9,8 @@ const initialState: searchState = {
         sortOrder: '',
         sortField: '',
         resultPerPage: 12,
-        firstResult: 0
+        // 0 = page 1, 1 = page 2
+        currentPage: 0
     },
     results: [] as product[],
     total: 0,
@@ -26,7 +27,7 @@ type searchAction = {
     sortOrder: string;
     sortField?: string;
     resultPerPage: number;
-    firstResult: number;
+    currentPage: number;
 };
 
 export const searchReducer = (state = initialState, action: searchAction) => {
@@ -56,7 +57,8 @@ export const searchReducer = (state = initialState, action: searchAction) => {
                 ...state,
                 query: {
                     ...state.query,
-                    searchTerm: action.searchTerm
+                    searchTerm: action.searchTerm,
+                    currentPage: 0
                 }
             };
         case actionTypes.UPDATE_SELECTION:
@@ -64,7 +66,8 @@ export const searchReducer = (state = initialState, action: searchAction) => {
                 ...state,
                 query: {
                     ...state.query,
-                    selection: action.selection
+                    selection: action.selection,
+                    currentPage: 0
                 }
             };
 
@@ -74,7 +77,8 @@ export const searchReducer = (state = initialState, action: searchAction) => {
                 query: {
                     ...state.query,
                     sortField: action.sortField,
-                    sortOrder: action.sortOrder
+                    sortOrder: action.sortOrder,
+                    currentPage: 0
                 }
             };
 
@@ -83,16 +87,17 @@ export const searchReducer = (state = initialState, action: searchAction) => {
                 ...state,
                 query: {
                     ...state.query,
-                    resultPerPage: action.resultPerPage
+                    resultPerPage: action.resultPerPage,
+                    currentPage: 0
                 }
             };
 
-        case actionTypes.UPDATE_FIRST_RESULT_DISPLAY:
+        case actionTypes.UPDATE_CURRENT_PAGE:
             return {
                 ...state,
                 query: {
                     ...state.query,
-                    firstResult: action.firstResult
+                    currentPage: action.currentPage
                 }
             };
 
