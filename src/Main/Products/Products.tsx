@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import Selector from '../../UI/Selector/Selector';
 import ProductCard from './ProductCard/ProductCard';
 import Pagination from '../../UI/Pagination/Pagination';
+import TopOfPage from '../../UI/Buttons/TopOfPage';
 
 import { state, product } from '../../shared/types';
 import { parseSplitGroup } from '../../helpers/utils';
@@ -66,6 +67,7 @@ const Products = () => {
                     <Pagination />
                 </div>
             </div>
+            <TopOfPage />
         </div>
     );
 };

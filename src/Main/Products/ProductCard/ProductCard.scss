@@ -5,19 +5,19 @@
 .product-card {
     display: grid;
     grid-template-rows: max-content 1fr;
-    padding: 2rem 1rem;
-    max-width: 30rem;
+    padding: 1rem 0;
+    max-width: 27rem;
     transition: all .4s;
     justify-self: center;
 
     &__img {
         grid-row: 1 / 2;
         width: 100%;
-        padding: 1rem;
+        padding: 1rem 0;
         text-align: center;
 
         img {
-            height: 26rem;
+            height: 25rem;
         }
     }
 
