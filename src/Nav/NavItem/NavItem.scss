@@ -13,6 +13,8 @@
         height: 100%;
         padding: 0 5rem;
         text-transform: uppercase;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid transparent;
         cursor: pointer;
         transition: all .4s ease-in-out;
     }
