@@ -1,29 +1,55 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
+import * as actionTypes from '../../../store/actions/actionTypes';
 import './ProductCard.scss';
 
-const ProductCard = () => {
-    let labels = (
-        <React.Fragment>
-            <p className='label'>label1</p>
-            <p className='label'>label2</p>
-            <p className='label'>label3asdf</p>
-            <p className='label'>label3</p>
-            <p className='label'>label3</p>
-            <p className='label'>label3</p>
-        </React.Fragment>
-    );
+type productCardProps = {
+    link: string;
+    imgURL: string;
+    title: string;
+    country: string;
+    region: string;
+    price: number;
+    labels: { field: string; value: string }[];
+};
+
+const ProductCard = (props: productCardProps) => {
+    const dispatch = useDispatch();
 
     return (
         <div className='product-card'>
-            <div className='product-card__img'>image</div>
-            <div className='product-card__title'>title</div>
-            <div className='product-card__location'>
-                pays / <span>region</span>
-            </div>
-            <div className='product-card__bottom'>
-                <div className='labels'>{labels}</div>
-                <div className='price'>
-                    <span>$</span> 88
+            <a target='_blank' href={props.link} className='product-card__img'>
+                <img src={props.imgURL} alt={props.title} />
+            </a>
+            <div className='product-card--container'>
+                <div>
+                    <div className='product-card__title'>{props.title}</div>
+                    <div className='product-card__location'>
+                        {props.country} <span> {props.region}</span>
+                    </div>
+                </div>
+                <div className='product-card__bottom'>
+                    <div className='labels'>
+                        {props.labels.map(label => (
+                            <p
+                                className='label'
+                                key={label.value}
+                                onClick={() =>
+                                    dispatch({
+                                        type: actionTypes.ADD_TERM,
+                                        field: label.field,
+                                        value: label.value
+                                    })
+                                }>
+                                {label.value}
+                            </p>
+                        ))}
+                    </div>
+                    <div className='price'>
+                        <span>$</span>{' '}
+                        {props.price ? props.price.toFixed(2) : ''}
+                    </div>
                 </div>
             </div>
         </div>
