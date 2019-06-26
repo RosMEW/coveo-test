@@ -10,7 +10,7 @@ export const newSearch = (query: querySearchParams) => {
         dispatch({ type: actionTypes.SEARCH_START });
 
         // use POST instead of GET to include GROUPBY property
-        axios
+        return axios
             .post('/search', { ...query, groupBy: groupByQuery })
             .then(res => {
                 const searchReponse: searchReponse = res.data;
