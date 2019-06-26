@@ -1,0 +1,35 @@
+.error {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background: rgba(black, .8);
+    cursor: pointer;
+
+    img {
+        transform: translate(50%, 25%);
+        border-radius: 6rem;
+        box-shadow: 1rem 1rem 1rem black;
+        z-index: 150;
+    }
+}
+
+.error-enter {
+    opacity: 0;
+}
+
+.error-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+.error-exit {
+    opacity: 1;
+}
+
+.error-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+}
