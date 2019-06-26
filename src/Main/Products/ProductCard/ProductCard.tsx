@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import * as actionTypes from '../../../store/actions/actionTypes';
 import './ProductCard.scss';
+
+type label = { field: string; value: string };
 
 type productCardProps = {
     link: string;
@@ -11,12 +12,11 @@ type productCardProps = {
     country: string;
     region: string;
     price: number;
-    labels: { field: string; value: string }[];
+    labels: label[];
+    onLabelClick: (label: label) => void;
 };
 
 const ProductCard = (props: productCardProps) => {
-    const dispatch = useDispatch();
-
     return (
         <div className='product-card'>
             <a target='_blank' href={props.link} className='product-card__img'>
@@ -35,13 +35,7 @@ const ProductCard = (props: productCardProps) => {
                             <p
                                 className='label'
                                 key={label.value}
-                                onClick={() =>
-                                    dispatch({
-                                        type: actionTypes.ADD_TERM,
-                                        field: label.field,
-                                        value: label.value
-                                    })
-                                }>
+                                onClick={() => props.onLabelClick(label)}>
                                 {label.value}
                             </p>
                         ))}

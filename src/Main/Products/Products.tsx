@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Selector from '../../UI/Selector/Selector';
 import ProductCard from './ProductCard/ProductCard';
@@ -8,6 +8,7 @@ import TopOfPage from '../../UI/Buttons/TopOfPage';
 
 import { state, product } from '../../shared/types';
 import { parseSplitGroup } from '../../helpers/utils';
+import * as actionTypes from '../../store/actions/actionTypes';
 import './Products.scss';
 
 type labels = { field: string; value: string }[];
@@ -15,6 +16,7 @@ type labels = { field: string; value: string }[];
 const Products = () => {
     const products = useSelector((state: state) => state.search.results);
     const total = useSelector((state: state) => state.search.total);
+    const dispatch = useDispatch();
 
     const getLabels = (product: product) =>
         [
@@ -60,6 +62,13 @@ const Products = () => {
                             region={product.raw.tpregion}
                             price={product.raw.tpprixnum}
                             labels={getLabels(product)}
+                            onLabelClick={label =>
+                                dispatch({
+                                    type: actionTypes.ADD_TERM,
+                                    field: label.field,
+                                    value: label.value
+                                })
+                            }
                         />
                     ))}
                 </div>
