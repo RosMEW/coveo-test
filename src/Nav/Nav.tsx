@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import NavItem from './NavItem/NavItem';
 import { state } from '../shared/types';
+import { navItems } from '../shared/navItems';
 import * as actionTypes from '../store/actions/actionTypes';
 import './Nav.scss';
 
@@ -14,41 +15,6 @@ type navField =
     | 'Recommandation'
     | 'Gustative'
     | 'Disponibilité';
-
-const navItems = {
-    Catégorie: [{ field: 'tpcategorie', value: 'Catégorie' }],
-    Région: [
-        { field: 'tppays', value: 'Pays' },
-        { field: 'tpregion', value: 'Région' }
-    ],
-    Qualité: [
-        { field: 'tpmillesime', value: 'Millésime' },
-        { field: 'tpcoteexpertsplitgroup', value: "Cote d'expert" },
-        { field: 'tpcepagenomsplitgroup', value: 'Cépage' }
-    ],
-    Caractéristique: [
-        { field: 'tpclassification', value: 'Classification' },
-        { field: 'tpparticularitesplitgroup', value: 'Particularité' },
-        { field: 'tpfamilledevinsplitgroup', value: 'Famille de vin' }
-    ],
-    Recommandation: [
-        { field: 'tpaccordsnommenu', value: 'Accords suggérés' },
-        { field: 'tppastilledegout', value: 'Pastille de goût' }
-    ],
-    Gustative: [
-        { field: 'tpobservationsgustativesacidite', value: 'Acidité' },
-        { field: 'tpobservationsgustativescorps', value: 'Corps' },
-        { field: 'tpobservationsgustativestannins', value: 'Tannins' },
-        { field: 'tpobservationsgustativestexture', value: 'Texture' }
-    ],
-    Disponibilité: [
-        { field: 'tpdisponibilite', value: 'Disponibilité' },
-        {
-            field: 'tpinventairenomsuccursalesplitgroup',
-            value: 'Succursale'
-        }
-    ]
-};
 
 const navItemNames = [
     'Catégorie',

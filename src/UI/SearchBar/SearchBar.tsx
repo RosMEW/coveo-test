@@ -21,7 +21,6 @@ const SearchBar = (props: { onSubmit: (searchTerm: string) => void }) => {
             <button
                 type='reset'
                 className={`search-bar__btn ${showInput ? 'close' : ''}`}
-                onMouseEnter={() => (showInput ? null : setShowInput(true))}
                 onClick={() =>
                     showInput ? setShowInput(false) : setShowInput(true)
                 }

@@ -44,6 +44,7 @@ const Selection = () => {
                     <img src='/svg/spinner.svg' alt='icon-clear-all' />
                 </div>
             </div>
+            <p>Appuyer S pour la recherche rapide</p>
         </div>
     );
 };

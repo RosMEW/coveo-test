@@ -3,7 +3,7 @@
 
 .selection {
     @include flexColumn(flex-start);
-    min-width: 17rem;
+    max-width: 18rem;
     padding: 0 1rem;
     text-transform: capitalize;
     font-size: 2rem;
@@ -12,6 +12,10 @@
     position: fixed;
     top: 25vh;
     left: 0;
+    z-index: 50;
+    background: white;
+    border-radius: .5rem;
+    padding: 1rem 1rem 2rem 1rem;
 
     &__list {
         @include flexColumn();
@@ -67,5 +71,13 @@
         &--icon:hover img {
             transform: rotate(360deg);
         }
+    }
+
+    p {
+        margin-top: 1rem;
+        max-width: 18rem;
+        text-align: center;
+        font-size: 1.7rem;
+        font-style: italic;
     }
 }
