@@ -19,6 +19,6 @@ export const groupByQuery = [
     '@tpobservationsgustativestexture'
 ].map(field => ({
     field,
-    maximumNumberOfValues: 7,
+    maximumNumberOfValues: 20,
     sortCriteria: 'occurrences'
 }));

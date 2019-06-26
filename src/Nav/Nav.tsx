@@ -102,7 +102,7 @@ const Nav = () => {
                                         group => group.field === category.field
                                     )
                                     .map(group =>
-                                        group.values.map(value => (
+                                        group.values.slice(0, 10).map(value => (
                                             <div
                                                 key={value.value}
                                                 className='item'
