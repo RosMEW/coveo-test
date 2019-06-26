@@ -20,14 +20,14 @@ const initialState: searchState = {
 
 type searchAction = {
     type: string;
-    searchTerm: string;
-    results: product[];
-    total: number;
-    selection: Dictionary<string[]>;
-    sortOrder: string;
+    searchTerm?: string;
+    results?: product[];
+    total?: number;
+    selection?: Dictionary<string[]>;
+    sortOrder?: string;
     sortField?: string;
-    resultPerPage: number;
-    currentPage: number;
+    resultPerPage?: number;
+    currentPage?: number;
 };
 
 export const searchReducer = (state = initialState, action: searchAction) => {

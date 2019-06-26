@@ -1,7 +1,7 @@
 import { Dictionary, map, isEmpty } from 'lodash';
 
 export const parseSplitGroup = (string: string) =>
-    string ? string.split(';' || ' ') : [];
+    string ? string.split(';') : [];
 
 // convert selection dictionary to aq query params
 /** e.g. @authorname==("bob jones","robert smith","rob johnson") */
