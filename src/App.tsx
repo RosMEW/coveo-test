@@ -67,7 +67,7 @@ const App: React.FC = () => {
                 unmountOnExit
                 mountOnEnter
                 classNames='quick-search'>
-                <QuickSearch onClick={() => setShowQuickSearch(false)} />
+                <QuickSearch hideModal={() => setShowQuickSearch(false)} />
             </CSSTransition>
             <Nav />
             <Main />
