@@ -7,6 +7,10 @@ import store from '../../store/store';
 import * as actionTypes from '../../store/actions/actionTypes';
 
 const setup = () => {
+    // Override window.scrollTo method
+    const scollTo = jest.fn();
+    window.scrollTo = scollTo;
+
     cleanup();
     const wrapper = render(
         <Provider store={store}>
@@ -15,6 +19,7 @@ const setup = () => {
     );
     return {
         wrapper,
+        scollTo,
         getPage2: () =>
             wrapper.container.querySelector('a[aria-label="Page 2"]')
     };
@@ -35,10 +40,12 @@ describe('<Pagination />', () => {
         expect(getPage2()).toBeTruthy();
     });
     it('should update current page', () => {
-        const { getPage2 } = setup();
+        const { getPage2, scollTo } = setup();
         fireEvent.click(getPage2() as Element);
 
         const currentPage = store.getState().search.query.currentPage;
         expect(currentPage).toEqual(1);
+        expect(scollTo).toHaveBeenCalledTimes(1);
+        expect(scollTo).toHaveBeenCalledWith(0, 0);
     });
 });
