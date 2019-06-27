@@ -1,0 +1,30 @@
+@import '../../style/typography.scss';
+@import '../../style/colors.scss';
+@import '../../style/mixins.scss';
+
+.selector {
+    margin: 1rem 0;
+    height: 100%;
+    @include flexRow();
+
+    select {
+        @include fontLato(1.6rem, 400);
+        font-style: italic;
+        color: $color-font-grey-red;
+        background-color: white;
+        width: 18rem;
+        outline: none;
+        cursor: pointer;
+        padding: .6rem .8rem;
+        border: 1px solid white;
+        transition: all .3s;
+    }
+
+    .page {
+        width: 7rem;
+    }
+}
+
+.selector:hover select {
+    border: 1px solid $color-primary;
+}

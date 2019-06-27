@@ -1,0 +1,109 @@
+@import '../../../style/colors.scss';
+@import '../../../style/mixins.scss';
+@import '../../../style/typography.scss';
+
+.product-card {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    padding: 1rem 0;
+    max-width: 27rem;
+    transition: all .4s;
+    justify-self: center;
+
+    &__img {
+        grid-row: 1 / 2;
+        width: 100%;
+        padding: 1rem 0;
+        text-align: center;
+
+        img {
+            height: 25rem;
+        }
+    }
+
+    &--container {
+        @include flexColumn(space-between);
+        width: 100%;
+        height: 100%;
+        grid-row: 2 / end;
+    }
+
+    &__title {
+        @include fontLustria(2rem);
+        line-height: 1.2;
+        color: $color-primary;
+        text-transform: capitalize;
+        width: 100%;
+        text-align: center;
+    }
+
+    &__location {
+        text-transform: capitalize;
+        font-size: 1.8rem;
+        font-weight: 400;
+        width: 100%;
+        text-align: center;
+
+        span {
+            padding-left: .6rem;
+            font-size: 1.7rem;
+            font-style: italic;
+        }
+    }
+
+    &__bottom {
+        flex-grow: 1;
+        @include flexRow(space-between);
+        text-align: center;
+        width: 90%;
+        margin-top: .5rem;
+
+        .labels {
+            @include flexRow();
+            flex-wrap: wrap;
+            margin-right: .5rem;
+
+            .label {
+                display: inline-block;
+                font-size: 1.5rem;
+                margin-right: 3px;
+                margin-top: 3px;
+                background: $color-primary;
+                color: white;
+                text-transform: capitalize;
+                padding: 0 3px;
+                text-shadow: 2px 2px 2px black;
+                border: 2px solid $color-primary;
+                border-radius: .3rem;
+                transition: all .3s;
+            }
+
+            .label:hover {
+                background: white;
+                color: $color-primary;
+                cursor: pointer;
+                text-shadow: none;
+                font-style: italic;
+                box-shadow: 2px 2px 2px black;
+            }
+        }
+
+        .price {
+            @include flexRow(flex-end);
+            @include fontLustria(3rem);
+            color: $color-wine-1;
+            width: 10rem;
+            height: 5rem;
+
+            span {
+                font-size: 1.6rem;
+                transform: translateY(20%);
+                margin-right: .5rem;
+            }
+        }
+    }
+}
+
+.product-card:hover {
+    box-shadow: 2px 3px 4px rgba($color-secondary, .5);
+}

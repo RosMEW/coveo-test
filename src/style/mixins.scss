@@ -1,0 +1,46 @@
+@import './typography.scss';
+@import './colors.scss';
+
+@mixin flexRow($justifyContent: flex-start, $align-items: center) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $justifyContent;
+    align-items: $align-items;
+}
+
+@mixin flexColumn($justifyContent: center) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: $justifyContent;
+}
+
+// Search Bar
+@mixin initialForm($width: 4rem, $borderRadius: 50%, $padding: 0) {
+    @include fontLato(2rem, 400);
+    width: $width;
+    height: 4rem;
+    padding: $padding;
+    border-radius: $borderRadius;
+    color: $color-font-grey-red;
+    outline: 0;
+    background: none;
+}
+
+@mixin searchPseudo($rotateDegree: 45deg, $margTop: 0, $margLeft: -1.2rem, $width: 2rem) {
+    content: "";
+    position: absolute;
+    transform: rotate($rotateDegree);
+    width: $width;
+    height: 3px;
+    margin-top: $margTop;
+    margin-left: $margLeft;
+    background-color: $color-border-input;
+    cursor: pointer;
+}
+
+@mixin icon($size: 1.6rem) {
+    width: $size;
+    height: $size;
+    cursor: pointer;
+}

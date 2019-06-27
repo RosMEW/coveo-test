@@ -1,0 +1,36 @@
+@import '../style/mixins.scss';
+@import '../style/colors.scss';
+
+header {
+    @include flexRow(center);
+    width: 100%;
+    height: 8vh;
+    position: fixed;
+    background: white;
+    z-index: 80;
+    box-shadow: 0 1px 6px $color-primary;
+    top: 0;
+    left: 0;
+
+    .header {
+        @include flexRow(space-between);
+        width: 80%;
+        height: 100%;
+        padding: 0 2rem;
+
+        @media only screen and (max-width: 1248px) {
+            width: 100%;
+        }
+
+        img {
+            display: block;
+            height: 80%;
+            margin: 0 1rem;
+        }
+
+        &--right {
+            @include flexRow(center);
+            height: 100%;
+        }
+    }
+}

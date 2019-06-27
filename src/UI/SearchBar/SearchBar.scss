@@ -1,0 +1,55 @@
+@import '../../style/colors.scss';
+@import '../../style/mixins.scss';
+
+.search-bar {
+    @include flexRow(flex-end);
+    height: 100%;
+    width: 40rem;
+
+    &__input {
+        @include initialForm();
+        border: 3px solid $color-border-input;
+        transition: width .4s ease-in-out, border-radius .8s ease-in-out, padding .2s;
+        transition-delay: .2s;
+    }
+
+    &__btn {
+        @include initialForm();
+        border: 0;
+        cursor: pointer;
+        transition: .2s ease-in-out;
+        transform: translateX(-100%);
+    }
+
+    &__btn::before {
+        @include searchPseudo(45deg, 2rem, 1.2rem, 1.5rem);
+        transition: .2s ease-in-out;
+    }
+
+    .close {
+        transition: .4s ease-in-out;
+    }
+
+    .close::before {
+        @include searchPseudo();
+        transition: .2s ease-in-out;
+    }
+
+    .close::after {
+        @include searchPseudo(-45deg)
+    }
+
+    .square {
+        @include initialForm(40rem, 0, 0 4rem 0 1rem);
+        border: 2px solid $color-border-input;
+        transition: width .4s ease-in-out, border-radius .4s ease-in-out, padding .2s;
+        transition-delay: .4s, 0s, .4s;
+    }
+
+    .square:focus,
+    .square:-webkit-autofill {
+        color: $color-font-grey-red;
+        background-color: white;
+        -webkit-box-shadow: 0 0 0 3rem white inset !important;
+    }
+}

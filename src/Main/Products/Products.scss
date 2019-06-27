@@ -1,0 +1,45 @@
+@import '../../style/mixins.scss';
+
+.products {
+    padding-left: 17rem;
+    margin: 0 3rem 0 1rem;
+
+    &--container {
+        @include flexColumn(flex-start);
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        padding: 1rem 2rem 1rem 1rem;
+    }
+
+    &__header {
+        @include flexRow(space-between);
+        width: 100%;
+
+        &--right {
+            @include flexRow(center);
+            height: 100%;
+            padding: 0 1rem;
+            font-style: italic;
+
+            .results {
+                padding: 0 2rem 0 1rem;
+            }
+        }
+    }
+
+    &__list {
+        width: 100%;
+        padding: 0 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+        grid-gap: 1rem;
+    }
+
+    &__footer {
+        width: 100%;
+        padding: 1rem 2rem;
+        margin: 2rem auto;
+        @include flexRow(center);
+    }
+}
